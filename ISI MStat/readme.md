@@ -1,0 +1,1 @@
+[ISI MStat](https://www.isical.ac.in/content/master-statistics-m-stat) is a national entrance examination for Masters in Statistics, the best programme of Statistics in India. This is organized by the [Indian Statistical Institute, Kolkata](https://www.isical.ac.in/). 
