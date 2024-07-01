@@ -28,7 +28,7 @@ has at most one solution.
 * Now, look into the given information of $A^T A=I$. Although $A$ is not a square matrix, this gives the idea that $A$ has a left inverse $A^T$.
 * We know that for square matrices non-zero nullity means it is not invertible. Invertible square matrices always have zero nullity. Is this also applicable to non-square matrices?
 * The answer is no. I will ask you to prove it by giving further food for thought questions. However, let's try to solve this problem.
-* Since $A(x_1 - x_2) = 0$, and $A^T A = I$. What happens if we right multiply (x_1 - x_2) to both the sides?
+* Since $A(x_1 - x_2) = 0$, and $A^T A = I$. What happens if we right multiply $x_1 - x_2$ to both the sides?
 * $A^T A (x_1 - x_2) = (x_1 - x_2) \implies A^T 0 = (x_1 - x_2) \implies x_1 - x_2 = 0 \implies x_1 = x_2$, but we have assumed that $x_2 \neq x_1$ (contradiction!). QED
 
 # Understanding More
