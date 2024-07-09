@@ -37,3 +37,44 @@ A box contains 7 indistinguishable green balls, 5 indistinguishable white balls,
 \frac{\binom{13}{k-1}}{\binom{18}{k-1}} \times \frac{5}{19-k} & \text{if } 9 \leq k \leq 14
 \end{cases}
 ```
+
+```python
+from math import comb
+
+def P_N_G(k):
+    if 3 <= k <= 6:
+        return (comb(11, k-1) - comb(5, k-1) - comb(6, k-1)) / comb(18, k-1) * 7 / (19-k)
+    elif k == 7:
+        return (comb(11, k-1) - 1) / comb(18, k-1) * 7 / (19-k)
+    elif 8 <= k <= 12:
+        return comb(11, k-1) / comb(18, k-1) * 7 / (19-k)
+    else:
+        return 0
+
+def P_N_B(k):
+    if 3 <= k <= 6:
+        return (comb(12, k-1) - comb(5, k-1) - comb(7, k-1)) / comb(18, k-1) * 6 / (19-k)
+    elif 7 <= k <= 8:
+        return (comb(12, k-1) - 1) / comb(18, k-1) * 6 / (19-k)
+    elif 9 <= k <= 13:
+        return comb(12, k-1) / comb(18, k-1) * 6 / (19-k)
+    else:
+        return 0
+        
+def P_N_W(k):
+    if 3 <= k <= 7:
+        return (comb(13, k-1) - comb(6, k-1) - comb(7, k-1)) / comb(18, k-1) * 5 / (19-k)
+    elif k == 8:
+        return (comb(13, k-1) - 1) / comb(18, k-1) * 5 / (19-k)
+    elif 9 <= k <= 14:
+        return comb(13, k-1) / comb(18, k-1) * 5 / (19-k)
+    else:
+        return 0
+        
+sum_P_N_G = sum(P_N_G(k) for k in range(3, 13))
+sum_P_N_B = sum(P_N_B(k) for k in range(3, 14))
+sum_P_N_W = sum(P_N_W(k) for k in range(3, 15))
+
+print(sum_P_N_G+sum_P_N_B+sum_P_N_W)
+# 1.0001616031027796
+```
