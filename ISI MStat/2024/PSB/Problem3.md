@@ -74,7 +74,41 @@ def P_N_W(k):
 sum_P_N_G = sum(P_N_G(k) for k in range(3, 13))
 sum_P_N_B = sum(P_N_B(k) for k in range(3, 14))
 sum_P_N_W = sum(P_N_W(k) for k in range(3, 15))
-
 print(sum_P_N_G+sum_P_N_B+sum_P_N_W)
 # 1.0001616031027796
+
+exp_P_N_G = sum(k*P_N_G(k) for k in range(3, 13))
+exp_P_N_B = sum(k*P_N_B(k) for k in range(3, 14))
+exp_P_N_W = sum(k*P_N_W(k) for k in range(3, 15))
+print(exp_P_N_G+exp_P_N_B+exp_P_N_W)
+# 4.855
+
+import numpy as np
+
+# Define the number of simulations
+num_simulations = 100000
+
+# Define the ball colors
+colors = ['G'] * 7 + ['W'] * 5 + ['B'] * 6
+
+# Function to perform a single simulation
+def simulate_draws():
+    seen_colors = set()
+    num_draws = 0
+    
+    while len(seen_colors) < 3:
+        draw = np.random.choice(colors)
+        seen_colors.add(draw)
+        num_draws += 1
+    
+    return num_draws
+
+# Perform simulations
+results = [simulate_draws() for _ in range(num_simulations)]
+
+# Calculate the expected value of N
+expected_value_N = np.mean(results)
+print(expected_value_N)
+
+# 5.65994
 ```
